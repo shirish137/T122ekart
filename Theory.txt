@@ -1,0 +1,35 @@
+To create virtual evironment install virtualenv module
+
+pip install virtualenv
+
+create virtual env 
+
+virtualenv environmentname
+or
+python -m virtualenv environmentname
+
+Activate virtual env
+====================
+>env\Scripts\activate
+
+Deactivate virtual env 
+======================
+>env\Scripts\deactivate
+
+install django 
+==============
+pip install django
+
+creating a project in django 
+============================
+django-admin startproject projectname
+e.g
+django-admin startproject store
+
+creatimg application 
+====================
+python manage.py startapp appname
+
+To run django server 
+====================
+python manage.py runserver

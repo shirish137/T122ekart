@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store|Edit product</title>
+</head>
+<body>
+    <h1 align="center">Edit Product Section</h1>
+    <h4><a href="/home">Dashboard</a></h4>
+    <br><br><br>
+     {% for x in data %}
+       <form method="POST" action="">
+          {% csrf_token %}
+             <table border="1" align="center">
+                        <tr>
+                              <td>Product Name:</td>
+                              <td><input type="text" name="pname" value="{{x.name}}" placeholder="Enter Product Name"></td>
+                        </tr>
+                        <tr>
+                            <td>Product Price:</td>
+                              <td><input type="number" name="price" value="{{x.price}}" placeholder="Enter Product price"></td>
+                        </tr>
+                        <tr>
+                            <td>Product QTY:</td>
+                            <td><input type="number" value="{{x.qty}}"name="qty" placeholder="Enter Product QTY"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                  <input type="submit" value="Update">
+                            </td>
+                        </tr>
+             </table>
+
+       </form>
+    {% endfor %}
+    
+</body>
+</html>

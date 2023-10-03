@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store|dashboard</title>
+</head>
+<body>
+    <!---<p><strong>Welcome User </strong>{{user}}!!!</p>
+     <hr>
+    <h4>Decision control</h4>
+    {% if x > y %}
+        <p>If block</p>
+        <p> {{x}} is greater</p>
+    {% else %}
+        <p>Else block</p>
+        <p> {{y}} is greater</p>
+    {% endif %}
+    <hr>
+    <h4>For loop</h4>
+    {{l}}
+    <br>
+    {% for x in l %}
+          {{x}} <br>
+    {% endfor %}
+    <hr>
+    <h4>For over dictionary</h4>
+    {{d}}
+    <br>
+    {% for x,y in d.items %}
+        {{x}}---{{y}}
+    {% endfor %}
+
+    <br>
+    <h4>Dictionary in list</h4>
+    {% for  x in data %}
+           {{x}} <br>
+    {% endfor %}
+
+    <h4>Accessing dictionary keys values</h4>--->
+    <h1 align="center">Dasboard</h1>
+    <h4><a href="/addproduct">Add Product</a></h4>
+    <table  border="1" align="center">
+               <tr>
+                    <th>Sr. No</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+               </tr>
+
+               {% for x in products %}
+                   <tr>
+                        <td>{{forloop.counter }}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.price}}</td>
+                        <td>{{x.qty}}</td>
+                        <td><a href="/edit/{{x.id}}">Edit</a></td>
+                        <td><a href="/delete/{{x.id}}">Delete</a></td>
+                   </tr>
+               {% endfor %}
+    </table>
+</body>
+</html>

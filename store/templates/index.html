@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="row">
+    <div class="col-md-3 mt-4" >
+                    <h6>Filter By Category</h6>
+                    <hr>
+                    <p><a href="/index" class="anchorclass"> <strong>All</strong> </a></p>
+                    <p><a href="/catfilter/1" class="anchorclass"> <strong>By Mobile</strong> </a></p>
+                    <p> <a href="/catfilter/2" class="anchorclass"><strong>By Shoes</strong></a></p>
+                    <p> <a href="/catfilter/3" class="anchorclass"><strong>By Cloths</strong></a></p>
+                   
+                    <h6>Filter By Price</h6>
+                    <hr>
+                    <form action="/pricerange">
+                        <div class="mb-3">
+                           <label for="minid" class="form-label"><strong>Min Value:</strong></label>
+                           <input type="number" name="min" class="form-control" id="minid" placeholder="Min value">
+                        </div>
+                        <div class="mb-3">
+                          <label for="maxid" class="form-label"><strong>Max Value:</strong></label>
+                          <input type="number" name="max" class="form-control" id="maxid" placeholder="Max value">
+                       </div>
+
+                       <p><button type="submit" class="btn btn-danger">Search</button></p>
+
+                    </form>
+
+                    <h6>Sort By Price</h6>
+                    <hr>
+                    <p><a href="/sort/1" class="anchorclass"><strong>High To Low</strong></a></p>
+                    <p><a href="/sort/0" class="anchorclass"><strong>Low To High</strong></a></p>
+                   
+    </div><!---sidebar  path('sort/<sv>',views.sort),-->
+
+    <div class="col-md-9" >
+
+                 <div class="row mt-4">
+                    {% for x in products %}
+                          <div class="col-md-4 mt-3">
+                                <div class="card" style="width: 100%;">
+                                  <img src="{{x.pimage.url}}" class="card-img-top" height="200px" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title">{{x.name}}</h5>
+                                    {% if x.cat == '1' %}
+                                    <p class="card-text">Mobile</p>
+                                    {% elif x.cat == '2' %}
+                                    <p class="card-text">Shoes</p>
+                                    {% else %}
+                                    <p class="card-text">Cloths</p>
+                                    {% endif %}
+
+                                    <p class="card-text">Rs. {{x.price}}</p>
+                                    <a href="/details/{{x.id}}" class="btn btn-danger">See Details</a>
+                                  </div>
+                                </div>
+                          </div><!--Product 1-->  
+                    {% endfor %}
+
+                 </div>
+
+    </div><!---Products list-->
+
+</div><!---Main section end-->
+{% endblock 'main' %}

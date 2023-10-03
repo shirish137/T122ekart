@@ -1,0 +1,24 @@
+Filters by category
+===============
+cv=1 or 2 or 3
+select * from storeapp_product where cat=cv and is_active=1;
+
+orm 
+Product.objects.filter(cat=cv & is)
+
+Logical Operators in orm
+
+and => &
+or  => |
+
+cat=cv and is_active=1
+
+sorting
+======
+select * from storeapp_product orderby price;
+
+orm 
+====
+Product.objects.order_by('price') => Ascending order 
+Product.objects.order_by('-price') => Descending
+

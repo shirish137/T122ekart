@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+ <!---Main section start-->
+ <div class="row mt-5">
+  {% for x in products %}
+    <div class="col-md-6">
+            <img src="{{x.pimage.url}}" alt="" width="100%" height="500px">
+    </div>
+
+    <div class="col-md-6 mt-5">
+            {% if dup %}
+                    <div class="alert alert-danger" role="alert">
+                        {{dup}}
+                    </div>
+            {% endif %}
+            
+            {% if success %}
+                    <div class="alert alert-success" role="alert">
+                        {{success}}
+                    </div>
+            {% endif %}
+            <strong>Product Name:</strong> {{x.name}} <br><br>
+            <strong>Product Price:</strong> {{x.price}}<br><br>
+            <strong>Category:</strong> 
+            {% if x.cat == '1' %}
+               Mobile
+            {% elif x.cat == '2' %}
+                Shoes
+            {% else %}
+                Cloths
+            {% endif %} 
+            <br><br>
+            <strong>Product Details:</strong> Coolest Drink in the market <br><br>
+            <a href="/addcart/{{x.id}}"><button class="btn btn-danger">Add to Cart</button></a>
+            <a href="/cart"><button class="btn btn-danger">View Cart</button></a>
+            <a href="/index"><button class="btn btn-danger">Shop More</button></a>
+    </div>
+{% endfor %}
+
+</div>
+
+
+<!---Main section end-->
+
+{% endblock 'main' %}

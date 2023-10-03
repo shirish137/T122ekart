@@ -1,0 +1,9 @@
+request object
+=============
+request object store data related to request.
+ To  fetch request from request object.
+
+ data member = method
+ object      = request 
+
+ request.method

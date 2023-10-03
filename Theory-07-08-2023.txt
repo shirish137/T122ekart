@@ -1,0 +1,12 @@
+Static file configurations
+==========================
+Linking css,js and images 
+-------------------------
+step1:create static folder in project external.
+step2:create css,js and images folder inside static folder.
+step3: Create style.css in css folder and main.js file in js folder.
+step4: setting in settings.py file for static folder.
+
+       STATICFILES_DIRS=[
+            os.path.join(BASE_DIR,'static'),
+        ]

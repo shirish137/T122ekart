@@ -1,0 +1,157 @@
+Inserting data into database table 
+==================================
+
+Sql: insert into storeapp_product(name,price,,qty)values(product_name,price,q);
+
+ORM query to insert:
+
+object=Modelname.objects.create(colname1=value1,colname2=value2,....,colnameN=ValueN);
+
+e.g
+p=Product.objects.create(name=product_name,price=price,qty=q)
+p.save()
+
+Dashboard creation 
+==================
+1) link to add product
+2) View all product 
+3) edit product 
+4) delete a product
+
+View all product 
+===============
+
+Fetch all record from database table or model.
+
+sql: select * from storeapp_product;
+
+ORM:
+obj=Modelname.objects.all()
+e.g 
+p=Product.objects.all()
+
+
+storeapp_product ------------------> views.py home() ------------------->home.html 
+
+DTL = Django Template language 
+
+need: When there is need to use programming language concepts in HTML use DTL 
+
+1) string interpolation or variable interpolation.
+2) Decision control instruction  => if..else 
+3) for loop 
+4) resuability 
+5) Template inheritance.
+
+String interpolation 
+====================
+1) Data from views to template (html) is always passed in the form of dictionary.
+   context={}
+   context['user']="Itvedant"
+2) Fetch or retrive data in template or html file.
+    syntax:
+    {{keyname}}
+    e.g 
+    {{user}}
+
+Decision control 
+================
+if statement 
+-----------
+{% if condition %}
+     if code
+
+{% endif %}
+
+ifelse 
+======
+{% if condition %}
+     if code
+{% else %}
+      else code 
+{% endif %}
+
+elseif 
+====== 
+{% if condition %}
+     if code
+{% elif condition %}
+    if code 
+{% elif condition %}
+    if code 
+{% else  %}
+    else code
+{% endif %}
+
+
+for loop 
+========
+
+syntax:
+
+{% for x in keys %}
+
+      for code 
+
+{% endfor %}
+
+keys can be a collection: list,tuple,set , dictionary
+
+d={'a':'apple','b':'ball'}
+
+d['b']=ball
+                                                   data
+
+[ {'id':1,'name':'Machine','price':2500,'qty':5},{'id':2,'name':'Samsung','price':15000,'qty':2},{'id':3,'name':'jeans','price':550,'qty':5},]
+                     0                                               1                                      2
+
+        iteration                       x 
+           1                {'id':1,'name':'Machine','price':2500,'qty':5}
+           2                {'id':2,'name':'Samsung','price':15000,'qty':2}
+           3                {'id':3,'name':'jeans','price':550,'qty':5}
+
+           id  name  price qty 
+           1
+           2
+           3
+
+
+redirect()
+This helps to redirect from one url to another url.
+
+syntax:
+return redirect('/url)
+
+delete operation
+================
+SQL: delete from storeapp_product where id=2;
+/delete/3
+
+ORM
+===
+filter(condition)
+
+obj_del=Modelname.objects.filter(condition)
+e.g 
+p=Product.objects.filter(id=rid)
+
+p.delete() 
+
+edit
+====
+p=Product.objects.filter(id=rid)#select * from storeapp_product where id=2
+context={} #creating empty dictionary
+context['data']=p
+
+                data 
+    id   name            price   qty
+    5    woodland shoes  2500      1
+
+
+sql: update storeapp_product SET name=value1,price=3000,qty=6 where id=rid;
+
+fetch record 
+p=Product.objects.filter(id=rid)
+update:
+p.update(name=uvalue,price=uprice,qty=uqty)
+

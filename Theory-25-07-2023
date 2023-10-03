@@ -1,0 +1,16 @@
+
+Templates 
+=========
+Templates are HTML file or UI or reprsentative layer of application.
+
+To pass a response containing html file + data use render function.
+
+step1: Create a folder named as templates in project outer folder.
+step2: Link templates folder by doing a settings in templates=[] in settings.py file.
+       os.path.join(BASE_DIR,'templates')
+        C:\shirish sir\batch 12 -2\django Project\store + templates
+
+step3: create a html file and save that in templates folder.
+
+
+http://127.0.0.1:8000/addproduct?pname=machine&price=1500&qty=3

@@ -1,0 +1,33 @@
+Superuser
+command to create superuser
+python manage.py createsuperuser
+
+Username:itvedant
+email:itvedant@gmail.com
+password:redhat123@
+password confirmation:redhat123@
+
+
+Register model in admin 
+=======================
+admin.py  
+
+admin.site.register(modelname)
+
+
+Reflecting data of any column or data member from models
+========================================================
+class Product(models.Model):
+    name=models.CharField(max_length=50)
+    price=models.FloatField()
+    qty=models.IntegerField()
+
+    def __str__(self):
+
+        return self.name
+
+
+ModelAdmin class
+================
+
+
